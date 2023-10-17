@@ -2,3 +2,5 @@
     remote = ssh-storage
 ['remote "ssh-storage"']
     url = ssh://data-srv@192.168.56.102/opt/datasets
+    user = yashka2210
+    port = 22

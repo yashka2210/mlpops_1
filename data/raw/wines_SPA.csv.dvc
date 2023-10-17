@@ -1,0 +1,5 @@
+outs:
+- md5: ed876e0a7422843a66bc67b8abf42d0d
+  size: 688191
+  hash: md5
+  path: wines_SPA.csv
