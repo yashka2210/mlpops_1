@@ -9,16 +9,16 @@ stages:
       size: 688191
     - path: scripts/data_preprocessing/get_features_n_split.py
       hash: md5
-      md5: ecdd473a31f7c83788c95823054439b7
-      size: 1308
+      md5: 42d387dedb73c1aa58f69c2b3a325088
+      size: 1424
     params:
       params.yaml:
         split.split_ratio: 0.2
     outs:
     - path: data/stage_1
       hash: md5
-      md5: eea1a9d7db41d7eea8a66c829d830c38.dir
-      size: 141322
+      md5: 675a5f61411f5d6e15e6db2810d34fce.dir
+      size: 141494
       nfiles: 4
   preprocessing:
     cmd: python3 scripts/data_preprocessing/preprocessing.py data/stage_1/X_Train.csv
@@ -26,20 +26,20 @@ stages:
     deps:
     - path: data/stage_1/X_Train.csv
       hash: md5
-      md5: f82f985aee302b27cd8f45761fda6e46
-      size: 87136
+      md5: a5a9ec14f663520269c417abb4bf9986
+      size: 99655
     - path: data/stage_1/X_test.csv
       hash: md5
-      md5: 18e6d605750508306a3d1da5dcf74dd4
-      size: 37064
+      md5: fe0d95b837ba566f472d2800fd4cb045
+      size: 24545
     - path: data/stage_1/y_Train.csv
       hash: md5
-      md5: c7b457e7cafbfecd47818a6e52a3fa24
-      size: 12110
+      md5: 73b1f71232d94fd04dcf046331d638a9
+      size: 13955
     - path: data/stage_1/y_test.csv
       hash: md5
-      md5: a031923807ac450d163852df172dac97
-      size: 5012
+      md5: 54fbbeb6712a5139bb9ebffcc8aa1345
+      size: 3339
     - path: scripts/data_preprocessing/preprocessing.py
       hash: md5
       md5: 67ae8f204c51bb99bbf6fa2f675df889
@@ -47,6 +47,6 @@ stages:
     outs:
     - path: data/stage_2
       hash: md5
-      md5: 9531b90f4cab84f63ccc81de1ecfc049.dir
-      size: 2163366
+      md5: aec786290f04b83c4fee47ed8e32450b.dir
+      size: 1596363
       nfiles: 4
