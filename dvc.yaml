@@ -1,0 +1,18 @@
+stages:
+  get_features_n_split:
+    cmd: python3 scripts/data_preprocessing/get_features_n_split.py data/raw/wines_SPA.csv
+    deps:
+    - data/raw/wines_SPA.csv
+    - scripts/data_preprocessing/get_features_n_split.py
+    outs:
+    - data/stage_1
+  preprocessing:
+    cmd: python3 scripts/data_preprocessing/preprocessing.py data/stage_1/X_Train.csv data/stage_1/y_Train.csv data/stage_1/X_test.csv data/stage_1/y_test.csv
+    deps:
+    - data/stage_1/X_Train.csv
+    - data/stage_1/y_Train.csv
+    - data/stage_1/X_test.csv
+    - data/stage_1/y_test.csv
+    - scripts/data_preprocessing/preprocessing.py
+    outs:
+    - data/stage_2

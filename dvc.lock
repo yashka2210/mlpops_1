@@ -1,0 +1,49 @@
+schema: '2.0'
+stages:
+  get_features_n_split:
+    cmd: python3 scripts/data_preprocessing/get_features_n_split.py data/raw/wines_SPA.csv
+    deps:
+    - path: data/raw/wines_SPA.csv
+      hash: md5
+      md5: ed876e0a7422843a66bc67b8abf42d0d
+      size: 688191
+    - path: scripts/data_preprocessing/get_features_n_split.py
+      hash: md5
+      md5: ecdd473a31f7c83788c95823054439b7
+      size: 1308
+    outs:
+    - path: data/stage_1
+      hash: md5
+      md5: eea1a9d7db41d7eea8a66c829d830c38.dir
+      size: 141322
+      nfiles: 4
+  preprocessing:
+    cmd: python3 scripts/data_preprocessing/preprocessing.py data/stage_1/X_Train.csv
+      data/stage_1/y_Train.csv data/stage_1/X_test.csv data/stage_1/y_test.csv
+    deps:
+    - path: data/stage_1/X_Train.csv
+      hash: md5
+      md5: f82f985aee302b27cd8f45761fda6e46
+      size: 87136
+    - path: data/stage_1/X_test.csv
+      hash: md5
+      md5: 18e6d605750508306a3d1da5dcf74dd4
+      size: 37064
+    - path: data/stage_1/y_Train.csv
+      hash: md5
+      md5: c7b457e7cafbfecd47818a6e52a3fa24
+      size: 12110
+    - path: data/stage_1/y_test.csv
+      hash: md5
+      md5: a031923807ac450d163852df172dac97
+      size: 5012
+    - path: scripts/data_preprocessing/preprocessing.py
+      hash: md5
+      md5: 67ae8f204c51bb99bbf6fa2f675df889
+      size: 2083
+    outs:
+    - path: data/stage_2
+      hash: md5
+      md5: 9531b90f4cab84f63ccc81de1ecfc049.dir
+      size: 2163366
+      nfiles: 4
