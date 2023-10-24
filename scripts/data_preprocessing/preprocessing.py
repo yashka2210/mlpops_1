@@ -43,7 +43,7 @@ X_Train = preprocessors.transform(X_Train) # преобразуем  трени�
 
 X_test = preprocessors.transform(X_test) # преобразуем  тестовые данные
 
-X_Train = pd.DataFrame(X_train)
+X_Train = pd.DataFrame(X_Train)
 X_test = pd.DataFrame(X_test)
 
 os.makedirs(os.path.join("data", "stage_2"),exist_ok=True)
