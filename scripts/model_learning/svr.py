@@ -37,5 +37,5 @@ y_Train = pd.read_csv('data/stage_2/y_Train.csv', index_col = 0)
 
 SVM_reg.fit(X_Train, y_Train)
 
-with open("models", "wb") as fd:
-  pickle.dump(SVM_reg, fd)
+#with open("models", "wb") as fd:
+pickle.dump(SVM_reg, "models/model.pkl")
