@@ -26,3 +26,13 @@ stages:
     - scripts/model_learning/svr.py
     outs:
     - models/model.pkl
+  evaluate:
+    cmd: python3 scripts/model_learning/eval.py data/stage_2/X_test.csv data/stage_2/y_test.csv models/model.pkl
+    deps:
+    - data/stage_2/X_test.csv
+    - data/stage_2/y_test.csv
+    - models/model.pkl
+    - scripts/model_learning/eval.py
+    metrics:
+    - evaluate/r2score.json:
+        cache: false
