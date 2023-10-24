@@ -31,9 +31,9 @@ if gamma == 0:
 SVM_reg=SVR(kernel=kernel, epsilon=epsilon, C=C, gamma=gamma,
             degree=degree, coef0 = coef0)
 
-X_Train = pd.read_csv('data/stage_2/X_Train.csv')
+X_Train = pd.read_csv('data/stage_2/X_Train.csv', index_col = 0)
 
-y_Train = pd.read_csv('data/stage_2/y_Train.csv')
+y_Train = pd.read_csv('data/stage_2/y_Train.csv', index_col = 0)
 
 SVM_reg.fit(X_Train, y_Train)
 

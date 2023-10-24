@@ -42,11 +42,11 @@ stages:
       size: 3339
     - path: scripts/data_preprocessing/preprocessing.py
       hash: md5
-      md5: 67ae8f204c51bb99bbf6fa2f675df889
+      md5: 96e56ebab68245f88b30753454e762c2
       size: 2083
     outs:
     - path: data/stage_2
       hash: md5
-      md5: aec786290f04b83c4fee47ed8e32450b.dir
-      size: 1596363
+      md5: f5acd9d2937e7f5243b75adff632db15.dir
+      size: 7341875
       nfiles: 4

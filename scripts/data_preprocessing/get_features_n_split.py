@@ -4,7 +4,7 @@ from sklearn.model_selection import train_test_split
 import os
 import yaml
 
-df = pd.read_csv('data/raw/wines_SPA.csv', delimiter = ',')
+df = pd.read_csv('data/raw/wines_SPA.csv', delimiter = ',', index_col = 0)
 df['year'] = df['year'].replace('N.V.', np.NaN)  #заменяем в датафрейме реплейсом
 df['body'] = df['body'].replace('<NA>', np.NaN)
 df['acidity'] = df['acidity'].replace('<NA>', np.NaN)

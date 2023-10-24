@@ -1,9 +1,9 @@
 import pandas as pd
 import os
-X_Train = pd.read_csv('data/stage_1/X_Train.csv')
-X_test = pd.read_csv('data/stage_1/X_test.csv')
-y_Train = pd.read_csv('data/stage_1/y_Train.csv')
-y_test = pd.read_csv('data/stage_1/y_test.csv')
+X_Train = pd.read_csv('data/stage_1/X_Train.csv', index_col = 0)
+X_test = pd.read_csv('data/stage_1/X_test.csv', index_col = 0)
+y_Train = pd.read_csv('data/stage_1/y_Train.csv', index_col = 0)
+y_test = pd.read_csv('data/stage_1/y_test.csv', index_col = 0)
 
 
 cat_columns = []
