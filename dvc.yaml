@@ -4,6 +4,8 @@ stages:
     deps:
     - data/raw/wines_SPA.csv
     - scripts/data_preprocessing/get_features_n_split.py
+    params:
+    - split.split_ratio
     outs:
     - data/stage_1
   preprocessing:

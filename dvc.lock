@@ -11,6 +11,9 @@ stages:
       hash: md5
       md5: ecdd473a31f7c83788c95823054439b7
       size: 1308
+    params:
+      params.yaml:
+        split.split_ratio: 0.2
     outs:
     - path: data/stage_1
       hash: md5
