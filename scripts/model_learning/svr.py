@@ -14,7 +14,7 @@ from sklearn.model_selection import cross_validate
 from sklearn.svm import SVC
 
 from sklearn.model_selection import RandomizedSearchCV
-from sklearn.utils.fixes import loguniform
+#from sklearn.utils.fixes import loguniform
 
 epsilon=20 
 
