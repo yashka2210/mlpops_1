@@ -13,12 +13,12 @@ stages:
       size: 1439
     params:
       params.yaml:
-        split.split_ratio: 0.2
+        split.split_ratio: 0.3
     outs:
     - path: data/stage_1
       hash: md5
-      md5: f70dd8a2b71d7e0ea92d49eb794532f1.dir
-      size: 117326
+      md5: 44d4b27e961f4b9efd8b83d0cc9954b7.dir
+      size: 117154
       nfiles: 4
   preprocessing:
     cmd: python3 scripts/data_preprocessing/preprocessing.py data/stage_1/X_Train.csv
@@ -26,20 +26,20 @@ stages:
     deps:
     - path: data/stage_1/X_Train.csv
       hash: md5
-      md5: 16666f51d1f2f4ed45fd09bc0ed9bd3c
-      size: 80213
+      md5: 1393eb2a7aa759df9580170ebabbef65
+      size: 70231
     - path: data/stage_1/X_test.csv
       hash: md5
-      md5: b4fb146580ce6647beadc0175426eaeb
-      size: 19819
+      md5: 7910bfe8648c67494b9b1a340370b9f6
+      size: 29801
     - path: data/stage_1/y_Train.csv
       hash: md5
-      md5: 73b1f71232d94fd04dcf046331d638a9
-      size: 13955
+      md5: c7b457e7cafbfecd47818a6e52a3fa24
+      size: 12110
     - path: data/stage_1/y_test.csv
       hash: md5
-      md5: 54fbbeb6712a5139bb9ebffcc8aa1345
-      size: 3339
+      md5: a031923807ac450d163852df172dac97
+      size: 5012
     - path: scripts/data_preprocessing/preprocessing.py
       hash: md5
       md5: 3081844fbeab51889b1769ef1705674e
@@ -47,20 +47,20 @@ stages:
     outs:
     - path: data/stage_2
       hash: md5
-      md5: 19946a0fee5ab59f5c25eb366bf3f8b3.dir
-      size: 4837576
+      md5: 33e221890ddde903882abf76910d61a5.dir
+      size: 4473440
       nfiles: 4
   train:
     cmd: python3 scripts/model_learning/svr.py data/stage_2/X_Train.csv data/stage_2/y_Train.csv
     deps:
     - path: data/stage_2/X_Train.csv
       hash: md5
-      md5: d643b390538ccdf9898d2b81291fb58a
-      size: 3854290
+      md5: dc62906dfca85df52457ee0cfad43223
+      size: 3116500
     - path: data/stage_2/y_Train.csv
       hash: md5
-      md5: 73b1f71232d94fd04dcf046331d638a9
-      size: 13955
+      md5: c7b457e7cafbfecd47818a6e52a3fa24
+      size: 12110
     - path: scripts/model_learning/svr.py
       hash: md5
       md5: 615b244a78fb130c09be409b96ab14f0
@@ -68,24 +68,24 @@ stages:
     outs:
     - path: models/model.pkl
       hash: md5
-      md5: ea2a580be42b0038f332dcb9d77209dc
-      size: 4410602
+      md5: 318a4478eb67c0c0182e4e20e7044726
+      size: 3720416
   evaluate:
     cmd: python3 scripts/model_learning/eval.py data/stage_2/X_test.csv data/stage_2/y_test.csv
       models/model.pkl
     deps:
     - path: data/stage_2/X_test.csv
       hash: md5
-      md5: 024db7de8affc32376bec45f2f8e06e2
-      size: 965992
+      md5: 85a779a68a7a39b5f00a068a80cd51c1
+      size: 1339818
     - path: data/stage_2/y_test.csv
       hash: md5
-      md5: 54fbbeb6712a5139bb9ebffcc8aa1345
-      size: 3339
+      md5: a031923807ac450d163852df172dac97
+      size: 5012
     - path: models/model.pkl
       hash: md5
-      md5: ea2a580be42b0038f332dcb9d77209dc
-      size: 4410602
+      md5: 318a4478eb67c0c0182e4e20e7044726
+      size: 3720416
     - path: scripts/model_learning/eval.py
       hash: md5
       md5: e977610b2c1155bcdb5ce7f037bc43e1
@@ -93,5 +93,5 @@ stages:
     outs:
     - path: evaluate/r2score.json
       hash: md5
-      md5: 60a2241a41988bc5caa8a15e31ef7534
+      md5: a3a7808afb4b9782895f81c581ff977c
       size: 32
