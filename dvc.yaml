@@ -24,6 +24,9 @@ stages:
     - data/stage_2/X_Train.csv
     - data/stage_2/y_Train.csv
     - scripts/model_learning/svr.py
+    params:
+    - svr_train.epsilon
+    - svr_train.C
     outs:
     - models/model.pkl
   evaluate:

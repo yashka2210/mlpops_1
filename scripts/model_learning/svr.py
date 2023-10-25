@@ -2,6 +2,7 @@ import pandas as pd
 from sklearn.svm import SVR
 import pickle
 import os
+import yaml
 # SVM
 
 from sklearn.model_selection import StratifiedKFold
@@ -16,9 +17,9 @@ from sklearn.svm import SVC
 from sklearn.model_selection import RandomizedSearchCV
 #from sklearn.utils.fixes import loguniform
 
-epsilon=20 
-
-C=100 
+params = yaml.safe_load(open("params.yaml"))["svr_train"]
+p_eps= params["epsilon"]
+p_c= params["C"]
 
 kernel = 'poly' 
 coef0=4.5 
@@ -28,7 +29,7 @@ gamma=0.4
 if gamma == 0:
   gamma='auto'
 
-SVM_reg=SVR(kernel=kernel, epsilon=epsilon, C=C, gamma=gamma,
+SVM_reg=SVR(kernel=kernel, epsilon=p_eps, C=p_c, gamma=gamma,
             degree=degree, coef0 = coef0)
 
 X_Train = pd.read_csv('data/stage_2/X_Train.csv', index_col = 0)

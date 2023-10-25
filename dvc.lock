@@ -63,13 +63,17 @@ stages:
       size: 12110
     - path: scripts/model_learning/svr.py
       hash: md5
-      md5: 615b244a78fb130c09be409b96ab14f0
-      size: 866
+      md5: 215e0d916ede7561fe53fa418055e9e7
+      size: 958
+    params:
+      params.yaml:
+        svr_train.C: 100
+        svr_train.epsilon: 50
     outs:
     - path: models/model.pkl
       hash: md5
-      md5: 318a4478eb67c0c0182e4e20e7044726
-      size: 3720416
+      md5: d45b1c0a0d398cfe910e4ef2bd409145
+      size: 2547860
   evaluate:
     cmd: python3 scripts/model_learning/eval.py data/stage_2/X_test.csv data/stage_2/y_test.csv
       models/model.pkl
@@ -84,8 +88,8 @@ stages:
       size: 5012
     - path: models/model.pkl
       hash: md5
-      md5: 318a4478eb67c0c0182e4e20e7044726
-      size: 3720416
+      md5: d45b1c0a0d398cfe910e4ef2bd409145
+      size: 2547860
     - path: scripts/model_learning/eval.py
       hash: md5
       md5: e977610b2c1155bcdb5ce7f037bc43e1
@@ -93,5 +97,5 @@ stages:
     outs:
     - path: evaluate/r2score.json
       hash: md5
-      md5: a3a7808afb4b9782895f81c581ff977c
+      md5: a9748eaf68f750ad0455edab60019040
       size: 32
